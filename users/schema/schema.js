@@ -1,5 +1,6 @@
 const graphql = require('graphql');
 const axios = require('axios');
+const _ =require('lodash')
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -9,8 +10,11 @@ const {
   GraphQLNonNull
 } = graphql;
 
+
+
 const CompanyType = new GraphQLObjectType({
   name: 'Company',
+  //closure makes sure func doesn't run until called not cause error of operation with UserType
   fields: () => ({
     id: { type: GraphQLString },
     name: { type: GraphQLString },
